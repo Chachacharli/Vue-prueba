@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { boolean } from 'mathjs';
 
 function showDetails(){
     console.log(this.te)
@@ -39,7 +38,7 @@ export default{
         },
         completed: {
             default: false,
-            type: boolean,
+            type: Boolean,
         }
     } ,
     data(){
