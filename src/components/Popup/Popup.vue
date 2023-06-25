@@ -45,7 +45,8 @@ function handlerForm(e){
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(obj)})
-
+    
+    this.$emit('returnTodo', {id, obj} )
 }
 
 

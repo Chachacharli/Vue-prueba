@@ -37,9 +37,11 @@
         </main>        
 
         <Popup 
+        @returnTodo="updateTodo"
         v-if="popupTriggers.btnTrigger"
         :TogglePopup="()=>TogglePopup('btnTrigger')"
-        :currentTodo="this.currentTodo">            
+        :currentTodo="this.currentTodo">   
+                 
         </Popup>
         
 
@@ -67,8 +69,16 @@ function deteleTodo(e){
 
 }
 
-function selectCurrentTodo(e){
-    console.log(e)
+function updateTodo(e){
+    const index = this.todos.findIndex(obj => obj._id === e.id)
+    this.todos[index] = { 
+        _id: e.id,
+        todo: e.obj.todo,
+        completed: e.obj.completed,
+        userIdL: e.obj.userId
+    }
+
+
 }
 
 
@@ -82,6 +92,7 @@ export default{
   methods: {
     modifyTodo,
     deteleTodo,
+    updateTodo
   },
   props:{
     todos: [],
